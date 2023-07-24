@@ -1,12 +1,21 @@
 #include <stdio.h>
 
-int main(void)
-{
-    char s[10] = "My School";
+void rev_string(char *s) {
+    int length = 0;
+    char *end = s;
 
-    printf("%s\n", s);
-    rev_string(s);
-    printf("%s\n", s);
-    return (0);
+    while (*end != '\0') {
+        length++;
+        end++;
+    }
+
+    end --;
+    while (s < end) {
+        char temp = *s;
+        *s = *end;
+        *end = temp;
+        s++;
+        end--;
+    }
 }
 
