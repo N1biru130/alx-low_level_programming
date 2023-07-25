@@ -6,8 +6,8 @@
 
 void generate_password(char *password, int length) {
     char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=";
+    int i; // Move the variable declaration to the beginning of the block
     srand((unsigned int)time(NULL));
-    int i;
     for (i = 0; i < length; i++) {
         password[i] = charset[rand() % (sizeof(charset) - 1)];
     }
