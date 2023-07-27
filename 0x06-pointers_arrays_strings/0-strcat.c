@@ -9,20 +9,24 @@
 
 char *_strcat(char *dest, char *src)
 {
-	int lengthD, lengthS;
+    char *ptr = dest;
 
-	lengthD = 0;
-	lengthS = 0;
+    /* Find the end of the dest string */
+    while (*dest)
+    {
+        dest++;
+    }
 
-	while (*(dest + lengthD) != '\0')
-		lengthD++;
+    /* Copy the src string to dest */
+    while (*src)
+    {
+        *dest = *src;
+        dest++;
+        src++;
+    }
 
-	while (*(src + lengthS) != '\0' && lengthD < 97)
-	{
-		*(dest + lengthD) = *(src + lengthS);
-		lengthD++;
-		lengthS++;
-	}
-	*(dest + lengthD) = '\0';
-	return (dest);
+    /* Add the terminating null byte */
+    *dest = '\0';
+
+    return ptr;
 }
